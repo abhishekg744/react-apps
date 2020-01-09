@@ -1,0 +1,20 @@
+.item-container {
+    display: flex;
+}
+
+.item-1{
+    width: 25%;
+}
+
+.item-2 {
+    display: inline-grid;
+}
+
+.price {
+    align-self: flex-end;
+}
+
+.cart-btn {
+    align-self: center;
+    height: 30px;
+}

@@ -1,0 +1,12 @@
+
+.stock-nav-items {
+    display: grid;
+    grid-gap: 15px;
+    grid-auto-rows: max-content;
+    background: lightsteelblue;
+
+    .selected {
+        color:blue;
+    }
+
+}
