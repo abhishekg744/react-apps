@@ -1,12 +1,28 @@
-input[type=text] {
-    border-radius: 10px;
-    padding: 3px;
-}
-input[type=text]:focus{
-    outline: none;
-    box-shadow:0 0 0 2px lightskyblue;
+.new-request-container{
+    padding: 20px;
 }
 
+.conatiner-1 {
+    display: flex;
+    padding-top: 10px;
+}
+
+.field-item {
+    padding: 10px;
+}
+
+.load-btn {
+    background-color: darkcyan;
+    border-width: 1px;
+    padding: 2px;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.load-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px lightskyblue;
+}
 // input[type=text]:focus{
 //     outline: none;      /* Remove default outline and use border or box-shadow */
 //     box-shadow: 0 0 0 2px orange; /* Full freedom. (works also with border-radius) */

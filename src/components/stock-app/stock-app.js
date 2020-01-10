@@ -11,15 +11,15 @@ const StockApp = ({ match }) => {
     const onNavSelected = (tab) => {
         setTab(selectedTab => selectedTab = tab);
     }
-    
+
     return (
         <div className="nav-grid">
-            <Nav match={match} onNavSelected={onNavSelected}/>
+            <Nav match={match} onNavSelected={onNavSelected} />
             <div className="inner-grid">
-                <InnerNav heading={selectedTab}/>
-                <div>
-                <Route path={`${match.url}/new-request`} component={NewRequest} />
-                <Route path={`${match.url}/my-requests`} component={MyRequest} />
+                <InnerNav heading={selectedTab} />
+                <div className="nav-content">
+                    <Route path={`${match.url}/new-request`} component={NewRequest} />
+                    <Route path={`${match.url}/my-requests`} component={MyRequest} />
                 </div>
             </div>
         </div>
