@@ -1,6 +1,7 @@
 import React, { useState, Component } from 'react';
 import GenerateTable from '../helpers/generate-data-table/generate-data-table';
 import { tableColSettings, tableSettings, tableMenuSettings } from '../helpers/generate-data-table/table';
+import { PopUp } from '../helpers/pop-up/pop-up';
 
 class MyRequest extends Component {
   constructor(props) {
@@ -22,13 +23,17 @@ class MyRequest extends Component {
     ];
 
     let settings: tableSettings = {
-      menu: { active: true, items: ['edit', 'delete'], inlineEdit: true }
+      menu: { active: true, items: ['view', 'edit', 'delete'], inlineEdit: true }
     };
 
     this.state = {
       Table_Data: tableData,
       Colms_Data: colms,
-      Settings: settings
+      Settings: settings,
+      popUpSettings: {
+        show: false,
+        width: '80%'
+      }
     };
 
   }
@@ -36,24 +41,35 @@ class MyRequest extends Component {
   onMenuItemClicked = (item, index, action) => {
     console.log("item, action", item, action);
     let copyDataArray = [...this.state.Table_Data];
-    if(action == 'edit')
-    {
-      let copyDataItem = {...item};
+    if (action == 'edit') {
+      let copyDataItem = { ...item };
       //copyDataItem.name = 'Changed';
       copyDataArray[index] = copyDataItem;
-      
-      
+
+
     } else if (action == 'delete') {
       copyDataArray.splice(index, 1);
     }
-    this.setState({Table_Data: copyDataArray});
+    else if (action == 'view') {
+      let settings = Object.assign({}, this.state.popUpSettings);  // creating copy of state variable jasper
+      settings.show = true;                     // update the name property, assign a new value                 
+      this.setState({ popUpSettings: settings });
+    }
+    this.setState({ Table_Data: copyDataArray });
+  }
+
+  closePopUp = () => {
+    let settings = Object.assign({}, this.state.popUpSettings);
+    settings.show = false;
+    this.setState({ popUpSettings: settings });
   }
 
   render() {
     return (
       <div>
-        <GenerateTable tableData={this.state.Table_Data} colms={this.state.Colms_Data} settings={this.state.Settings} 
-        onMenuItemClicked={this.onMenuItemClicked}/>
+        <GenerateTable tableData={this.state.Table_Data} colms={this.state.Colms_Data} settings={this.state.Settings}
+          onMenuItemClicked={this.onMenuItemClicked} />
+        <PopUp Settings={this.state.popUpSettings} OnClose={() => this.closePopUp()} />
       </div>
     );
   }

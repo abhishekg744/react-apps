@@ -54,8 +54,7 @@ const GenerateTable = ({tableData, colms, settings, onMenuItemClicked}) => {
                         )}
                         {settings.menu.active ? 
                             <td>
-                                <a onClick={() => onMenuItemClick(item, tableDataIndex, 'edit')}>edit</a>
-                                <a onClick={() => onMenuItemClick(item, tableDataIndex, 'delete')}> delete</a>
+                                {settings.menu.items.map(menuItem => <a onClick={() => onMenuItemClick(item, tableDataIndex, menuItem)}>{menuItem}</a>)}
                             </td>
                         : ''}
                     </tr>
