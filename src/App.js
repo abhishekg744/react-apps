@@ -14,6 +14,9 @@ function App() {
             <li>
                 <Link to="/shope">Shopping Site</Link>
             </li>
+            <li>
+                <Link to="/hrms">Hrms Site</Link>
+            </li>
         </ul>
     </div>
     

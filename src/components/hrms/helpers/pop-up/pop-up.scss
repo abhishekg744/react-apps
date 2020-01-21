@@ -1,0 +1,19 @@
+.pop-up-window {
+    position: fixed;
+    height: auto;
+    min-height: 100px;
+    padding: 6px;
+    box-shadow: 2px 1px 10px 4px lightgrey;
+    margin: auto;
+    z-index: 1000;
+}
+
+.pop-up-heading {
+    display: flex;
+    justify-content: center;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+}
