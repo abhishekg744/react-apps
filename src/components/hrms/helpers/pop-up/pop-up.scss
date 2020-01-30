@@ -1,11 +1,13 @@
 .pop-up-window {
-    position: fixed;
+    position: relative;
     height: auto;
     min-height: 100px;
     padding: 6px;
     box-shadow: 2px 1px 10px 4px lightgrey;
     margin: auto;
     z-index: 1000;
+    top: 50%;
+    background: white;
 }
 
 .pop-up-heading {
@@ -16,4 +18,12 @@
 .close {
     position: absolute;
     right: 10px;
+}
+
+.pop-up-container {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
 }

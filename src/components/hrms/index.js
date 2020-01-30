@@ -21,8 +21,9 @@ const Hrms = ({ match }) => {
         setTab(selectedTab => selectedTab = tab);
     }
     console.log('loading', loading);
-    return (
-        <div className="hrms-grid">
+    let loadingClass = loading ? 'loading': ''
+    return (<>
+        <div className={'hrms-grid ' + loadingClass}>
             <Nav onNavSelected={onNavSelected} />
             <div className="inner-grid">
                 <InnerNav heading={selectedTab} />
@@ -31,10 +32,10 @@ const Hrms = ({ match }) => {
                         <Route path={`${match.url}/dashboard`} component={Dashboard} />
                         <Route path={`${match.url}/department`} component={Department} />
                         <Route path={`${match.url}/office`} component={Office} />
-                    </div> {loading ? <div>loading..............</div>:<></>}
+                    </div>
                 </div>
-            </div>
-        </div>
+            </div> 
+        </div> {loading ? <div className="loader">loading..............</div>:<></>}</>
     );
 }
 

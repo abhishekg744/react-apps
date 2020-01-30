@@ -5,3 +5,14 @@
     height: inherit;
     background-color:whitesmoke;
 }
+
+.loading {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.loader {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+}
